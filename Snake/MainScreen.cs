@@ -23,15 +23,9 @@ namespace Snake{
         }
 
         private void MainScreen_KeyUp(object sender, KeyEventArgs e){
-            /*Console.Write(Head.X - Body[0].X);
-            Console.Write(" ");
-            Console.Write(Head.Y - Body[0].Y);
-            Console.Write(" ");
-            Console.WriteLine(SnakeDir.ToString());*/
             switch (e.KeyData){
                 case Keys.Up:
-                    if (SnakeDir != Direction.Down && Head.Y != Body[0].Y + 10)
-                    {
+                    if (SnakeDir != Direction.Down && Head.Y != Body[0].Y + 10) {
                         SnakeDir = Direction.Up;
                     }
                         break;
@@ -118,20 +112,15 @@ namespace Snake{
             if (Head == Food){
                 Food = FreeSpace[random.Next(0, FreeSpace.Count)];
                 FreeSpace.Remove(Food);
-                //this.Text = "Score: " & (Body.Count()-3);
+                this.Text = string.Format("Score: {0}", Body.Count() - 3);
             }
             else{
                 FreeSpace.Add(Body[Body.Count() - 1]);
                 Body.RemoveAt(Body.Count() - 1);
             }
-            /*if (FreeSpace.Count > 0){
-                int Picked = random.Next(0,FreeSpace.Count);
-                TakenSpace.Add(FreeSpace[Picked]);
-                FreeSpace.RemoveAt(Picked);
-            }*/
             if (Head.X>290||Head.X<0||Head.Y>290||Head.Y<0||Body.Contains(Head)){
                 timer1.Stop();
-                this.Text = "Game Over. Score: ";
+                this.Text = string.Format("Game Over. Score: {0}", Body.Count() - 3) ;
             }
             else { Refresh(); }
 
