@@ -119,7 +119,7 @@ namespace Snake{
                 FreeSpace.Add(Body[Body.Count() - 1]);
                 Body.RemoveAt(Body.Count() - 1);
             }
-            if (Head.X>290||Head.X<0||Head.Y>290||Head.Y<0||Body.Contains(Head)){
+            if (Head.X>maxwidth-10||Head.X<0||Head.Y>maxheight-10||Head.Y<0||Body.Contains(Head)){
                 timer1.Stop();
                 this.Text = string.Format("Game Over. Score: {0}", Body.Count() - 3) ;
             }
