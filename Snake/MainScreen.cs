@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Snake{
     public partial class MainScreen : Form{
-        Pen gridline = new Pen(Color.DarkGreen, 1);
+
         List<Point> FreeSpace = new List<Point>();
         Point Head, Food;
         List<Point> Body = new List<Point>();
@@ -50,6 +50,7 @@ namespace Snake{
 
         private void MainScreen_Paint(object sender, PaintEventArgs e){
             /*//BEGIN GRID
+                    Pen gridline = new Pen(Color.DarkGreen, 1);
             for (int i = 0; i<maxwidth; i += 10){
                 e.Graphics.DrawLine(gridline, i, 0, i, maxwidth);
             }
